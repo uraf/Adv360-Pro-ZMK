@@ -73,10 +73,8 @@
           label = "HOMEROW_MODS";
           #binding-cells = <2>;
           tapping-term-ms = <200>;
-          quick-tap-ms = <175>;
           flavor = "tap-preferred";
           bindings = <&kp>, <&kp>;
-          require-prior-idle-ms = <125>;
       };
 
       ht: hold_tap {
