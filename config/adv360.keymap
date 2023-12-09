@@ -128,6 +128,15 @@
           flavor = "tap-preferred";
           bindings = <&mo>, <&kp>;
       };
+
+      hhl: hold_hold_layer {
+          compatible = "zmk,behavior-hold-tap";
+          label = "HOLD_HOLD_LAYER";
+          #binding-cells = <2>;
+          tapping-term-ms = <220>;
+          flavor = "hold-preferred";
+          bindings = <&mo>, <&kp>;
+      };
     };
 
   keymap {
@@ -144,7 +153,7 @@
         // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯  ╭─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────╮  ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
              &kp LSHFT     &kp Z         &kp X         &kp C         &kp V         &kp B                                                      &kp HOME          &kp LALT                                                   &kp N         &kp M         &kp COMMA     &kp DOT       &kp FSLH      &kp RSHFT
         // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯                │             │             ├─────────────┤   ├─────────────┤             │             │                ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-             &to DEFAULT   &kp GRAVE     &kp CAPS      &kp BSPC      &kp DEL                                      &kp SPACE     &kp ENTER     &kp END           &kp PG_DN     &kp BSPC      &kp RALT                                     &kp LBKT      &kp RBKT      &kp EQUAL     &kp MINUS     &to RFN
+             &to DEFAULT   &kp GRAVE     &kp CAPS      &kp BSPC      &kp DEL                                      &kp SPACE    &hhl LMODS ENTER &kp END        &kp PG_DN     &hl RMODS BSPC      &kp RALT                                     &kp LBKT      &kp RBKT      &kp EQUAL     &kp MINUS     &to RFN
         // ╰─────────────┴─────────────┴─────────────┴─────────────┴─────────────╯                              ╰─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────╯                              ╰─────────────┴─────────────┴─────────────┴─────────────┴─────────────╯
       >;
     };
