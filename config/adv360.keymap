@@ -42,6 +42,16 @@
 // │ 60 │ 61 │ 62 │ 63 │ 64 │            │ 65 │ 66 │ 67 │   │ 68 │ 69 │ 70 │            │ 71 │ 72 │ 73 │ 74 │ 75 │
 // ╰────┴────┴────┴────┴────╯            ╰────┴────┴────╯   ╰────┴────┴────╯            ╰────┴────┴────┴────┴────╯
 
+#define POS_Q 15
+#define POS_W 16
+#define POS_E 17
+#define POS_R 18
+
+#define POS_U 23
+#define POS_I 24
+#define POS_O 25
+#define POS_P 26
+
 #define POS_A 29
 #define POS_S 30
 #define POS_D 31
@@ -76,29 +86,15 @@
     combos {
         compatible = "zmk,combos";
 
-        DEFINE_COMBO(lshft, <&kp LSHFT>, <POS_A POS_ENTER>)
-        DEFINE_COMBO(lgui, <&kp LGUI>, <POS_S POS_ENTER>)
-        DEFINE_COMBO(lalt, <&kp LALT>, <POS_D POS_ENTER>)
-        DEFINE_COMBO(lctrl, <&kp LCTRL>, <POS_F POS_ENTER>)
-        DEFINE_COMBO(lfn, <&mo FN>, <POS_G POS_ENTER>)
+        DEFINE_COMBO(lshft, <&kp LSHFT>, <POS_Q POS_A>)
+        DEFINE_COMBO(lgui, <&kp LGUI>, <POS_W POS_S>)
+        DEFINE_COMBO(lalt, <&kp LALT>, <POS_E POS_D>)
+        DEFINE_COMBO(lctrl, <&kp LCTRL>, <POS_R POS_F>)
 
-        DEFINE_COMBO(rfn, <&mo FN>, <POS_H POS_BKSP>)
-        DEFINE_COMBO(rctrl, <&kp RCTRL>, <POS_J POS_BKSP>)
-        DEFINE_COMBO(ralt, <&kp LALT>, <POS_K POS_BKSP>) // LALT for Windows compatibility
-        DEFINE_COMBO(rgui, <&kp RGUI>, <POS_L POS_BKSP>)
-        DEFINE_COMBO(rshft, <&kp RSHFT>, <POS_SEMI POS_BKSP>)
-
-        DEFINE_SLOW_COMBO(mods_lshft, <&mo LMODS>, <POS_A POS_ENTER>)
-        DEFINE_SLOW_COMBO(mods_lgui, <&mo LMODS>, <POS_S POS_ENTER>)
-        DEFINE_SLOW_COMBO(mods_lalt, <&mo LMODS>, <POS_D POS_ENTER>)
-        DEFINE_SLOW_COMBO(mods_lctrl, <&mo LMODS>, <POS_F POS_ENTER>)
-        DEFINE_SLOW_COMBO(mods_lfn, <&mo LMODS>, <POS_G POS_ENTER>)
-
-        DEFINE_SLOW_COMBO(mods_rfn, <&mo RMODS>, <POS_H POS_BKSP>)
-        DEFINE_SLOW_COMBO(mods_rctrl, <&mo RMODS>, <POS_J POS_BKSP>)
-        DEFINE_SLOW_COMBO(mods_ralt, <&mo RMODS>, <POS_K POS_BKSP>)
-        DEFINE_SLOW_COMBO(mods_rgui, <&mo RMODS>, <POS_L POS_BKSP>)
-        DEFINE_SLOW_COMBO(mods_rshft, <&mo RMODS>, <POS_SEMI POS_BKSP>)
+        DEFINE_COMBO(rctrl, <&kp RCTRL>, <POS_U POS_J>)
+        DEFINE_COMBO(ralt, <&kp LALT>, <POS_I POS_K>) // LALT for Windows compatibility
+        DEFINE_COMBO(rgui, <&kp RGUI>, <POS_O POS_L>)
+        DEFINE_COMBO(rshft, <&kp RSHFT>, <POS_P POS_SEMI>)
     };
 };
 
