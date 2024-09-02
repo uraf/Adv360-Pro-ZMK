@@ -9,15 +9,14 @@
 #define QWERTY 0
 #define APTV3 1
 #define KP 2
-#define FN 3
-#define HML 4
-#define HMR 5
+#define HML 3
+#define HMR 4
 
 // Default Kinesis Advantage 360 Pro layers.
-#define KIN_DEF 6
-#define KIN_KP 7
-#define KIN_FN 8
-#define MOD 9
+#define KIN_DEF 5
+#define KIN_KP 6
+#define KIN_FN 7
+#define MOD 8
 
 #define ___ &trans
 #define _x_ &none
@@ -40,33 +39,68 @@
 // │ 60 │ 61 │ 62 │ 63 │ 64 │            │ 65 │ 66 │ 67 │   │ 68 │ 69 │ 70 │            │ 71 │ 72 │ 73 │ 74 │ 75 │
 // ╰────┴────┴────┴────┴────╯            ╰────┴────┴────╯   ╰────┴────┴────╯            ╰────┴────┴────┴────┴────╯
 
+#define POS_ACUTE 0
+#define POS_1 1
+#define POS_2 2
+#define POS_3 3
+#define POS_4 4
+#define POS_5 5
+#define POS_6 8
+#define POS_7 9
+#define POS_8 10
+#define POS_9 11
+#define POS_0 12
+#define POS_PLUS 13
+
+#define POS_TAB 14
 #define POS_Q 15
 #define POS_W 16
 #define POS_E 17
 #define POS_R 18
 #define POS_T 19
-
 #define POS_Y 22
 #define POS_U 23
 #define POS_I 24
 #define POS_O 25
 #define POS_P 26
+#define POS_MINUS 27
 
 #define POS_A 29
 #define POS_S 30
 #define POS_D 31
 #define POS_F 32
 #define POS_G 33
-
 #define POS_H 40
 #define POS_J 41
 #define POS_K 42
 #define POS_L 43
 #define POS_SEMI 44
+#define POS_APOS 45
 
-#define POS_ENTER 66
-#define POS_BKSP 69
-#define POS_DEL 70
+#define POS_Z 47
+#define POS_X 48
+#define POS_C 49
+#define POS_V 50
+#define POS_B 51
+#define POS_N 54
+#define POS_M 55
+#define POS_COMMA 56
+#define POS_PERIOD 57
+#define POS_SLASH 58
+#define POS_RSHIFT 59
+
+#define POS_EQUALS 62
+#define POS_LBRACKET 63
+#define POS_RBRACKET 64
+
+#define POS_LEFT 71
+#define POS_DOWN 72
+#define POS_UP 73
+#define POS_RIGHT 74
+#define POS_ENTER 75
+
+#define POS_SPACE 65
+#define POS_LCMD 66
 
 #define DEFINE_COMBO(NAME, BINDINGS, KEYPOS) \
   combo_##NAME { \
@@ -86,19 +120,57 @@
     combos {
         compatible = "zmk,combos";
 
-        DEFINE_COMBO(thumb_shift, <&kp LSHFT>, <POS_BKSP POS_DEL>)
+        DEFINE_COMBO(media0, <&kp C_EJECT>, <POS_ACUTE POS_TAB>)
+        DEFINE_COMBO(media1, <&kp C_BRI_DN>, <POS_1 POS_Q>)
+        DEFINE_COMBO(media2, <&kp C_BRI_UP>, <POS_2 POS_W>)
+        // DEFINE_COMBO(media3, <&kp K_APP>, <POS_3 POS_E>)
+        // DEFINE_COMBO(media4, <&kp K_APP>, <POS_4 POS_R>)
+        // DEFINE_COMBO(media5, <&kp K_APP>, <POS_5 POS_T>)
+        // DEFINE_COMBO(media6, <&kp K_APP>, <POS_6 POS_Y>)
+        DEFINE_COMBO(media7, <&kp C_PREV>, <POS_7 POS_U>)
+        DEFINE_COMBO(media8, <&kp C_PP>, <POS_8 POS_I>)
+        DEFINE_COMBO(media9, <&kp C_NEXT>, <POS_9 POS_O>)
+        DEFINE_COMBO(media10, <&kp C_MUTE>, <POS_0 POS_P>)
+        DEFINE_COMBO(media11, <&kp C_VOL_DN>, <POS_MINUS POS_APOS>)
+        DEFINE_COMBO(media12, <&kp C_VOL_UP>, <POS_PLUS POS_MINUS>)
 
         DEFINE_HM_COMBO(lshft, HML, LSHFT, <POS_Q POS_A>)
-        DEFINE_HM_COMBO(lgui, HML, LGUI, <POS_W POS_S>)
+        DEFINE_HM_COMBO(lctrl, HML, LCTRL, <POS_W POS_S>)
         DEFINE_HM_COMBO(lalt, HML, LALT, <POS_E POS_D>)
-        DEFINE_HM_COMBO(lctrl, HML, LCTRL, <POS_R POS_F>)
+        DEFINE_HM_COMBO(lgui, HML, LGUI, <POS_R POS_F>)
         DEFINE_HM_COMBO(lglobe, HML, GLOBE, <POS_T POS_G>)
 
         DEFINE_HM_COMBO(rglobe, HMR, GLOBE, <POS_Y POS_H>)
-        DEFINE_HM_COMBO(rctrl, HMR, RCTRL, <POS_U POS_J>)
-        DEFINE_HM_COMBO(ralt, HMR, LALT, <POS_I POS_K>) // LALT for Windows compatibility
-        DEFINE_HM_COMBO(rgui, HMR, RGUI, <POS_O POS_L>)
+        DEFINE_HM_COMBO(rgui, HMR, RGUI, <POS_U POS_J>)
+        DEFINE_HM_COMBO(ralt, HMR, RALT, <POS_I POS_K>)
+        DEFINE_HM_COMBO(rctrl, HMR, RCTRL, <POS_O POS_L>)
         DEFINE_HM_COMBO(rshft, HMR, RSHFT, <POS_P POS_SEMI>)
+
+        DEFINE_COMBO(f1, <&kp F1>, <POS_A POS_Z>)
+        DEFINE_COMBO(f2, <&kp F2>, <POS_S POS_X>)
+        DEFINE_COMBO(f3, <&kp F3>, <POS_D POS_C>)
+        DEFINE_COMBO(f4, <&kp F4>, <POS_F POS_V>)
+        DEFINE_COMBO(f5, <&kp F5>, <POS_G POS_B>)
+        DEFINE_COMBO(f6, <&kp F6>, <POS_H POS_N>)
+        DEFINE_COMBO(f7, <&kp F7>, <POS_J POS_M>)
+        DEFINE_COMBO(f8, <&kp F8>, <POS_K POS_COMMA>)
+        DEFINE_COMBO(f9, <&kp F9>, <POS_L POS_PERIOD>)
+        DEFINE_COMBO(f10, <&kp F10>, <POS_SEMI POS_SLASH>)
+        DEFINE_COMBO(f11, <&kp F11>, <POS_Y POS_U>)
+        DEFINE_COMBO(f12, <&kp F12>, <POS_N POS_M>)
+
+        DEFINE_COMBO(print_screen, <&kp PSCRN>, <POS_X POS_EQUALS>)
+        DEFINE_COMBO(scroll_lock, <&kp SCLK>, <POS_C POS_LBRACKET>)
+        DEFINE_COMBO(pause_break, <&kp PAUSE_BREAK>, <POS_V POS_RBRACKET>)
+
+        DEFINE_COMBO(home, <&kp HOME>, <POS_M POS_LEFT>)
+        DEFINE_COMBO(page_down, <&kp PG_DN>, <POS_COMMA POS_DOWN>)
+        DEFINE_COMBO(page_up, <&kp PG_UP>, <POS_PERIOD POS_UP>)
+        DEFINE_COMBO(end, <&kp END>, <POS_SLASH POS_RIGHT>)
+        DEFINE_COMBO(insert, <&kp INS>, <POS_RSHIFT POS_ENTER>)
+        DEFINE_COMBO(menu, <&kp K_APP>, <POS_SEMI POS_RSHIFT>)
+
+        DEFINE_COMBO(enter, <&kp ENTER>, <POS_SPACE POS_LCMD>)
    };
 };
 
@@ -216,15 +288,15 @@
     qwerty_layer {
       bindings = <
         // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮                                                                                             ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-             &kp GRAVE     &kp N1        &kp N2        &kp N3        &kp N4        &kp N5        &kp PSCRN                                                                                                   &mo MOD       &kp N6        &kp N7        &kp N8        &kp N9        &kp N0        &kp EQUAL
+             &kp GRAVE     &kp N1        &kp N2        &kp N3        &kp N4        &kp N5        &kp F20                                                                                                     &mo MOD       &kp N6        &kp N7        &kp N8        &kp N9        &kp N0        &kp EQUAL
         // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                                                                                             ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-             &kp TAB       &kp Q         &kp W         &kp E         &kp R         &kp T         &kp PG_UP                                                                                                   &kp HOME      &kp Y         &kp U         &kp I         &kp O         &kp P         &kp MINUS
+             &kp TAB       &kp Q         &kp W         &kp E         &kp R         &kp T         &kp F21                                                                                                     &kp F23       &kp Y         &kp U         &kp I         &kp O         &kp P         &kp MINUS
         // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                ╭─────────────┬─────────────╮   ╭─────────────┬─────────────╮                ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-             &lth KP ESC   &kp A         &kp S         &kp D         &kp F         &kp G         &kp PG_DN                      &lth FN BSPC  &kp LWIN          &kp RWIN      &lth FN INS                    &kp END       &kp H         &kp J         &kp K         &kp L         &kp SEMI      &kp SQT
+             &lth KP ESC   &kp A         &kp S         &kp D         &kp F         &kp G         &kp F22                        &kp BSPC      &kp LGUI          &kp RGUI      _x_                            &kp F24       &kp H         &kp J         &kp K         &kp L         &kp SEMI      &kp SQT
         // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯  ╭─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────╮  ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
              &kp LSHFT     &kp Z         &kp X         &kp C         &kp V         &kp B                                                      &kp LALT          &kp RALT                                                   &kp N         &kp M         &kp COMMA     &kp DOT       &kp FSLH      &kp RSHFT
         // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯                │             │             ├─────────────┤   ├─────────────┤             │             │                ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-             &kp CAPS      &kp GLOBE     &kp BSLH      &kp LBKT      &kp RBKT                                     &kp SPACE    &lth FN ENTER  &kp LCTRL         &kp RCTRL     &kp BSPC     &mth LSHFT DEL                                &kp LEFT      &kp DOWN      &kp UP        &kp RIGHT     &kp K_APP
+             &kp CAPS      &kp BSLH      &kp EQUAL     &kp LBKT      &kp RBKT                                     &kp SPACE     &kp LGUI      &kp LCTRL         &kp RCTRL    &mth RALT DEL &mth RSHFT BSPC                               &kp LEFT      &kp DOWN      &kp UP        &kp RIGHT     &kp ENTER
         // ╰─────────────┴─────────────┴─────────────┴─────────────┴─────────────╯                              ╰─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────╯                              ╰─────────────┴─────────────┴─────────────┴─────────────┴─────────────╯
       >;
     };
@@ -248,31 +320,15 @@
     kp_layer {
       bindings = <
         // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮                                                                                             ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-             &kp EQUAL     &kp N0        &kp N9        &kp N8        &kp N7        &kp N6        ___                                                                                                         ___           &kp KP_NUM    &kp LPAR    &kp KP_DIVIDE &kp KP_MULTIPLY &kp RPAR      ___
+             ___           &kp N0        &kp N9        &kp N8        &kp N7        &kp N6        ___                                                                                                         ___           &kp KP_NUM    &kp LPAR    &kp KP_DIVIDE &kp KP_MULTIPLY &kp RPAR      ___
         // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                                                                                             ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-             ___           &kp P         &kp O         &kp I         &kp U         &kp Y         ___                                                                                                         ___           &kp CARET     &kp KP_N7     &kp KP_N8     &kp KP_N9     &kp KP_MINUS  ___
+             ___           &kp P         &kp O         &kp I         &kp U         &kp Y         &kp MINUS                                                                                                   ___           &kp CARET     &kp KP_N7     &kp KP_N8     &kp KP_N9     &kp KP_MINUS  ___
         // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                ╭─────────────┬─────────────╮   ╭─────────────┬─────────────╮                ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-             ___           &kp SEMI      &kp L         &kp K         &kp J         &kp H         ___                            &kp DEL       ___               ___           ___                            ___           &kp PERCENT   &kp KP_N4     &kp KP_N5     &kp KP_N6     &kp KP_PLUS   &kp KP_ENTER
+             ___           &kp SEMI      &kp L         &kp K         &kp J         &kp H         &kp SQT                        &kp DEL       ___               ___           ___                            ___           &kp PERCENT   &kp KP_N4     &kp KP_N5     &kp KP_N6     &kp KP_PLUS   &kp KP_ENTER
         // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯  ╭─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────╮  ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
              ___           &kp FSLH      &kp DOT       &kp COMMA     &kp M         &kp N                                                      ___               ___                                                        &kp EQUAL     &kp KP_N1     &kp KP_N2     &kp KP_N3     &kp KP_DOT    ___
         // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯                │             │             ├─────────────┤   ├─────────────┤             │             │                ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-             ___           ___           ___           ___           ___                                          ___           &kp ENTER     ___               ___           ___           &kp KP_N0                                    ___           ___           ___           ___           ___
-        // ╰─────────────┴─────────────┴─────────────┴─────────────┴─────────────╯                              ╰─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────╯                              ╰─────────────┴─────────────┴─────────────┴─────────────┴─────────────╯
-      >;
-    };
-
-    fn_layer {
-      bindings = <
-        // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮                                                                                             ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-             _x_           &kp C_BRI_DN  &kp C_BRI_UP  _x_           _x_           _x_           ___                                                                                                         ___           _x_           &kp C_PREV    &kp C_PP      &kp C_NEXT    _x_           &kp C_EJECT
-        // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                                                                                             ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-             ___           &kp F1        &kp F2        &kp F3        &kp F4        &kp F5        ___                                                                                                         ___           &kp F6        &kp F7        &kp F8        &kp F9        &kp F10       &kp F11
-        // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                ╭─────────────┬─────────────╮   ╭─────────────┬─────────────╮                ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-             &kp ESC       &kp LSHFT     &kp LGUI      &kp LALT      &kp LCTRL     &kp GLOBE     ___                            ___           ___               ___           ___                            ___           &kp GLOBE     &kp RCTRL     &kp LALT      &kp RGUI      &kp RSHFT     &kp F12
-        // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯  ╭─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────╮  ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-             ___           _x_           &kp PSCRN     &kp SCLK    &kp PAUSE_BREAK _x_                                                        ___               ___                                                        _x_           &kp C_MUTE    &kp C_VOL_DN  &kp C_VOL_UP  _x_           ___
-        // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯                │             │             ├─────────────┤   ├─────────────┤             │             │                ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-             ___           ___           ___           ___           ___                                          ___           ___           ___               ___           ___           &kp DEL                                      &kp HOME      &kp PG_DN     &kp PG_UP     &kp END       ___
+             ___           &kp LEFT      &kp DOWN      &kp UP        &kp RIGHT                                    ___           ___           ___               ___           &kp BSPC      &kp KP_N0                                    ___           ___           ___           ___           ___
         // ╰─────────────┴─────────────┴─────────────┴─────────────┴─────────────╯                              ╰─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────╯                              ╰─────────────┴─────────────┴─────────────┴─────────────┴─────────────╯
       >;
     };
@@ -284,7 +340,7 @@
         // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                                                                                             ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
              ___           ___           ___           ___           ___           ___           ___                                                                                                         ___           ___           ___           ___           ___           ___           ___
         // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                ╭─────────────┬─────────────╮   ╭─────────────┬─────────────╮                ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-             ___           &kp LSHFT     &kp LGUI      &kp LALT      &kp LCTRL     &kp GLOBE     ___                            ___           ___               ___           ___                            ___           ___           ___           ___           ___           ___           ___
+             ___           &kp LSHFT     &kp LCTRL     &kp LALT      &kp LGUI      &kp GLOBE     ___                            ___           ___               ___           ___                            ___           ___           ___           ___           ___           ___           ___
         // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯  ╭─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────╮  ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
              ___           ___           ___           ___           ___           ___                                                        ___               ___                                                        ___           ___           ___           ___           ___           ___
         // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯                │             │             ├─────────────┤   ├─────────────┤             │             │                ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
@@ -300,7 +356,7 @@
         // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                                                                                             ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
              ___           ___           ___           ___           ___           ___           ___                                                                                                         ___           ___           ___           ___           ___           ___           ___
         // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                ╭─────────────┬─────────────╮   ╭─────────────┬─────────────╮                ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-             ___           ___           ___           ___           ___           ___           ___                            ___           ___               ___           ___                            ___           &kp GLOBE     &kp RCTRL     &kp LALT      &kp RGUI      &kp RSHFT     ___
+             ___           ___           ___           ___           ___           ___           ___                            ___           ___               ___           ___                            ___           &kp GLOBE     &kp RGUI      &kp RALT      &kp RCTRL     &kp RSHFT     ___
         // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯  ╭─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────╮  ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
              ___           ___           ___           ___           ___           ___                                                        ___               ___                                                        ___           ___           ___           ___           ___           ___
         // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯                │             │             ├─────────────┤   ├─────────────┤             │             │                ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
