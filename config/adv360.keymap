@@ -104,14 +104,14 @@
 
 #define DEFINE_COMBO(NAME, BINDINGS, KEYPOS) \
   combo_##NAME { \
-    timeout-ms = <80>; \
+    timeout-ms = <150>; \
     bindings = BINDINGS; \
     key-positions = KEYPOS; \
   };
 
 #define DEFINE_HM_COMBO(NAME, MO, KP, KEYPOS) \
   combo_##NAME { \
-    timeout-ms = <80>; \
+    timeout-ms = <150>; \
     bindings = <&lm MO KP>; \
     key-positions = KEYPOS; \
   };
