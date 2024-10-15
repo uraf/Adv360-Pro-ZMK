@@ -1,0 +1,294 @@
+layout: {qmk_keyboard: adv360}
+layers:
+  default:
+  - '`'
+  - '1'
+  - '2'
+  - '3'
+  - '4'
+  - '5'
+  - "Print Screen"
+  - Mod
+  - '6'
+  - '7'
+  - '8'
+  - '9'
+  - '0'
+  - '='
+  - Tab
+  - Q
+  - W
+  - E
+  - R
+  - T
+  - ⌦
+  - Ins
+  - Y
+  - U
+  - I
+  - O
+  - P
+  - '-'
+  - {t: Esc, h: kp}
+  - A
+  - S
+  - D
+  - F
+  - G
+  - ⌫
+  - ⌘
+  - ⌥
+  - ⌃
+  - ⌘
+  - Enter
+  - H
+  - J
+  - K
+  - L
+  - ;
+  - ''''
+  - ⇧
+  - Z
+  - X
+  - C
+  - V
+  - B
+  - ⌃
+  - ⌥
+  - N
+  - M
+  - ','
+  - .
+  - /
+  - ⇧
+  - 🌐
+  - \
+  - '='
+  - '['
+  - ']'
+  - Space
+  - Enter
+  - fn
+  - fn
+  - {t: ⌫, h: ⌥}
+  - {t: ⌦, h: ⇧}
+  - ←
+  - ↓
+  - ↑
+  - →
+  - 🌐
+  fn:
+  - ⏏
+  - 🔆-
+  - 🔆+
+  - {t: '', type: trans}
+  - {t: '', type: trans}
+  - {t: '', type: trans}
+  - {t: '', type: trans}
+  - {t: '', type: trans}
+  - {t: '', type: trans}
+  - ⏮
+  - ⏯
+  - ⏭
+  - 🔇
+  - {t: '', type: trans}
+  - {t: '', type: trans}
+  - F1
+  - F2
+  - F3
+  - F4
+  - F5
+  - {t: '', type: trans}
+  - 🔈+
+  - F6
+  - F7
+  - F8
+  - F9
+  - F10
+  - F11
+  - ⇪
+  - ⇧
+  - ⌃
+  - ⌥
+  - ⌘
+  - 🌐
+  - {t: '', type: trans}
+  - {t: '', type: trans}
+  - {t: '', type: trans}
+  - {t: '', type: trans}
+  - {t: '', type: trans}
+  - 🔈-
+  - 🌐
+  - ⌘
+  - ⌥
+  - ⌃
+  - ⇧
+  - F12
+  - {t: '', type: trans}
+  - {t: '', type: trans}
+  - {t: '', type: trans}
+  - {t: '', type: trans}
+  - {t: '', type: trans}
+  - {t: '', type: trans}
+  - {t: '', type: trans}
+  - {t: '', type: trans}
+  - {t: '', type: trans}
+  - {t: '', type: trans}
+  - {t: '', type: trans}
+  - {t: '', type: trans}
+  - {t: '', type: trans}
+  - {t: '', type: trans}
+  - {t: '', type: trans}
+  - {t: '', type: trans}
+  - Print Screen
+  - Scroll Lock
+  - Pause Break
+  - {t: '', type: trans}
+  - {t: '', type: trans}
+  - {t: 'fn', type: held}
+  - {t: 'fn', type: held}
+  - {t: '', type: trans}
+  - {t: '', type: trans}
+  - Home
+  - Page Down
+  - Page Up
+  - End
+  - 'Menu'
+  kp:
+  - {t: '', type: trans}
+  - '0'
+  - '9'
+  - '8'
+  - '7'
+  - '6'
+  - {t: '', type: trans}
+  - {t: '', type: trans}
+  - Num Lock
+  - (
+  - ÷
+  - ×
+  - )
+  - {t: '', type: trans}
+  - {t: '', type: trans}
+  - P
+  - O
+  - I
+  - U
+  - Y
+  - '-'
+  - {t: '', type: trans}
+  - ^
+  - 7
+  - 8
+  - 9
+  - '-'
+  - {t: '', type: trans}
+  - {t: 'kp', type: held}
+  - ;
+  - L
+  - K
+  - J
+  - H
+  - ''''
+  - {t: '', type: trans}
+  - {t: '', type: trans}
+  - {t: '', type: trans}
+  - {t: '', type: trans}
+  - {t: '', type: trans}
+  - '%'
+  - 4
+  - 5
+  - 6
+  - '+'
+  - Num Enter
+  - {t: '', type: trans}
+  - /
+  - .
+  - ','
+  - M
+  - N
+  - {t: '', type: trans}
+  - {t: '', type: trans}
+  - '='
+  - 1
+  - 2
+  - 3
+  - '.'
+  - {t: '', type: trans}
+  - {t: '', type: trans}
+  - ←
+  - ↓
+  - ↑
+  - →
+  - {t: '', type: trans}
+  - {t: '', type: trans}
+  - {t: '', type: trans}
+  - {t: '', type: trans}
+  - ⌫
+  - 0
+  - {t: '', type: trans}
+  - {t: '', type: trans}
+  - {t: '', type: trans}
+  - {t: '', type: trans}
+  - {t: '', type: trans}
+combos:
+- p: [1, 15]
+  k: F1
+- p: [2, 16]
+  k: F2
+- p: [3, 17]
+  k: F3
+- p: [4, 18]
+  k: F4
+- p: [5, 19]
+  k: F5
+- p: [8, 22]
+  k: F6
+- p: [9, 23]
+  k: F7
+- p: [10, 24]
+  k: F8
+- p: [11, 25]
+  k: F9
+- p: [12, 26]
+  k: F10
+- p: [13, 27]
+  k: F11
+- p: [27, 45]
+  k: F12
+- p: [15, 29]
+  k: '⇧'
+- p: [16, 30]
+  k: '⌃'
+- p: [17, 31]
+  k: '⌥'
+- p: [18, 32]
+  k: '⌘'
+- p: [19, 33]
+  k: '🌐'
+- p: [22, 40]
+  k: '🌐'
+- p: [23, 41]
+  k: '⌘'
+- p: [24, 42]
+  k: '⌥'
+- p: [25, 43]
+  k: '⌃'
+- p: [26, 44]
+  k: '⇧'
+- p: [48, 62]
+  k: Print Screen
+- p: [49, 63]
+  k: Scroll Lock
+- p: [50, 64]
+  k: Pause Break
+- p: [55, 71]
+  k: Home
+- p: [56, 72]
+  k: Page Down
+- p: [57, 73]
+  k: Page Up
+- p: [58, 74]
+  k: End
+- p: [59, 75]
+  k: 'Menu'
