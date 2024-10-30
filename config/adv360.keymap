@@ -7,17 +7,18 @@
 
 // Custom layers
 #define QWERTY 0
-#define APTV3 1
-#define KP 2
-#define FN 3
-#define HML 4
-#define HMR 5
+#define WINDOWS 1
+#define APTV3 2
+#define KP 3
+#define FN 4
+#define HML 5
+#define HMR 6
 
 // Default Kinesis Advantage 360 Pro layers.
-#define KIN_DEF 6
-#define KIN_KP 7
-#define KIN_FN 8
-#define MOD 9
+#define KIN_DEF 7
+#define KIN_KP 8
+#define KIN_FN 9
+#define MOD 10
 
 #define ___ &trans
 #define _x_ &none
@@ -117,46 +118,46 @@
     key-positions = KEYPOS; \
   };
 
-/ {
-    combos {
-        compatible = "zmk,combos";
-
-        DEFINE_COMBO(f1, <&kp F1>, <POS_1 POS_Q>)
-        DEFINE_COMBO(f2, <&kp F2>, <POS_2 POS_W>)
-        DEFINE_COMBO(f3, <&kp F3>, <POS_3 POS_E>)
-        DEFINE_COMBO(f4, <&kp F4>, <POS_4 POS_R>)
-        DEFINE_COMBO(f5, <&kp F5>, <POS_5 POS_T>)
-        DEFINE_COMBO(f6, <&kp F6>, <POS_6 POS_Y>)
-        DEFINE_COMBO(f7, <&kp F7>, <POS_7 POS_U>)
-        DEFINE_COMBO(f8, <&kp F8>, <POS_8 POS_I>)
-        DEFINE_COMBO(f9, <&kp F9>, <POS_9 POS_O>)
-        DEFINE_COMBO(f10, <&kp F10>, <POS_0 POS_P>)
-        DEFINE_COMBO(f11, <&kp F11>, <POS_PLUS POS_MINUS>)
-        DEFINE_COMBO(f12, <&kp F12>, <POS_MINUS POS_APOS>)
-
-        DEFINE_HM_COMBO(lshft, HML, LSHFT, <POS_Q POS_A>)
-        DEFINE_HM_COMBO(lctrl, HML, LCTRL, <POS_W POS_S>)
-        DEFINE_HM_COMBO(lalt, HML, LALT, <POS_E POS_D>)
-        DEFINE_HM_COMBO(lgui, HML, LGUI, <POS_R POS_F>)
-        DEFINE_HM_COMBO(lglobe, HML, GLOBE, <POS_T POS_G>)
-
-        DEFINE_HM_COMBO(rglobe, HMR, GLOBE, <POS_Y POS_H>)
-        DEFINE_HM_COMBO(rgui, HMR, RGUI, <POS_U POS_J>)
-        DEFINE_HM_COMBO(ralt, HMR, RALT, <POS_I POS_K>)
-        DEFINE_HM_COMBO(rctrl, HMR, RCTRL, <POS_O POS_L>)
-        DEFINE_HM_COMBO(rshft, HMR, RSHFT, <POS_P POS_SEMI>)
-
-        DEFINE_COMBO(print_screen, <&kp PSCRN>, <POS_X POS_EQUALS>)
-        DEFINE_COMBO(scroll_lock, <&kp SCLK>, <POS_C POS_LBRACKET>)
-        DEFINE_COMBO(pause_break, <&kp PAUSE_BREAK>, <POS_V POS_RBRACKET>)
-
-        DEFINE_COMBO(home, <&kp HOME>, <POS_M POS_LEFT>)
-        DEFINE_COMBO(page_down, <&kp PG_DN>, <POS_COMMA POS_DOWN>)
-        DEFINE_COMBO(page_up, <&kp PG_UP>, <POS_PERIOD POS_UP>)
-        DEFINE_COMBO(end, <&kp END>, <POS_SLASH POS_RIGHT>)
-        DEFINE_COMBO(menu, <&kp K_APP>, <POS_RSHIFT POS_ENTER>)
-   };
-};
+// / {
+//     combos {
+//         compatible = "zmk,combos";
+// 
+//         DEFINE_COMBO(f1, <&kp F1>, <POS_1 POS_Q>)
+//         DEFINE_COMBO(f2, <&kp F2>, <POS_2 POS_W>)
+//         DEFINE_COMBO(f3, <&kp F3>, <POS_3 POS_E>)
+//         DEFINE_COMBO(f4, <&kp F4>, <POS_4 POS_R>)
+//         DEFINE_COMBO(f5, <&kp F5>, <POS_5 POS_T>)
+//         DEFINE_COMBO(f6, <&kp F6>, <POS_6 POS_Y>)
+//         DEFINE_COMBO(f7, <&kp F7>, <POS_7 POS_U>)
+//         DEFINE_COMBO(f8, <&kp F8>, <POS_8 POS_I>)
+//         DEFINE_COMBO(f9, <&kp F9>, <POS_9 POS_O>)
+//         DEFINE_COMBO(f10, <&kp F10>, <POS_0 POS_P>)
+//         DEFINE_COMBO(f11, <&kp F11>, <POS_PLUS POS_MINUS>)
+//         DEFINE_COMBO(f12, <&kp F12>, <POS_MINUS POS_APOS>)
+// 
+//         DEFINE_HM_COMBO(lshft, HML, LSHFT, <POS_Q POS_A>)
+//         DEFINE_HM_COMBO(lctrl, HML, LCTRL, <POS_W POS_S>)
+//         DEFINE_HM_COMBO(lalt, HML, LALT, <POS_E POS_D>)
+//         DEFINE_HM_COMBO(lgui, HML, LGUI, <POS_R POS_F>)
+//         DEFINE_HM_COMBO(lglobe, HML, GLOBE, <POS_T POS_G>)
+// 
+//         DEFINE_HM_COMBO(rglobe, HMR, GLOBE, <POS_Y POS_H>)
+//         DEFINE_HM_COMBO(rgui, HMR, RGUI, <POS_U POS_J>)
+//         DEFINE_HM_COMBO(ralt, HMR, RALT, <POS_I POS_K>)
+//         DEFINE_HM_COMBO(rctrl, HMR, RCTRL, <POS_O POS_L>)
+//         DEFINE_HM_COMBO(rshft, HMR, RSHFT, <POS_P POS_SEMI>)
+// 
+//         DEFINE_COMBO(print_screen, <&kp PSCRN>, <POS_X POS_EQUALS>)
+//         DEFINE_COMBO(scroll_lock, <&kp SCLK>, <POS_C POS_LBRACKET>)
+//         DEFINE_COMBO(pause_break, <&kp PAUSE_BREAK>, <POS_V POS_RBRACKET>)
+// 
+//         DEFINE_COMBO(home, <&kp HOME>, <POS_M POS_LEFT>)
+//         DEFINE_COMBO(page_down, <&kp PG_DN>, <POS_COMMA POS_DOWN>)
+//         DEFINE_COMBO(page_up, <&kp PG_UP>, <POS_PERIOD POS_UP>)
+//         DEFINE_COMBO(end, <&kp END>, <POS_SLASH POS_RIGHT>)
+//         DEFINE_COMBO(menu, <&kp K_APP>, <POS_RSHIFT POS_ENTER>)
+//    };
+// };
 
 / {
     behaviors {
@@ -277,11 +278,27 @@
         // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                                                                                             ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
              &kp TAB       &kp Q         &kp W         &kp E         &kp R         &kp T         &kp DEL                                                                                                     &kp INS       &kp Y         &kp U         &kp I         &kp O         &kp P         &kp MINUS
         // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                ╭─────────────┬─────────────╮   ╭─────────────┬─────────────╮                ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-             &lth KP ESC   &kp A         &kp S         &kp D         &kp F         &kp G         &kp BSPC                       &kp LGUI      &kp LALT          &kp RCTRL     &kp RGUI                       &kp ENTER     &kp H         &kp J         &kp K         &kp L         &kp SEMI      &kp SQT
+             &lth KP ESC   &kp A         &kp S         &kp D         &kp F         &kp G         &kp BSPC                       &kp LGUI      &kp LCTRL         &kp RCTRL     &kp RGUI                       &kp ENTER     &kp H         &kp J         &kp K         &kp L         &kp SEMI      &kp SQT
         // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯  ╭─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────╮  ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-             &kp LSHFT     &kp Z         &kp X         &kp C         &kp V         &kp B                                                      &kp LCTRL         &kp RALT                                                   &kp N         &kp M         &kp COMMA     &kp DOT       &kp FSLH      &kp RSHFT
+             &kp LSHFT     &kp Z         &kp X         &kp C         &kp V         &kp B                                                      &kp LALT          &kp RALT                                                   &kp N         &kp M         &kp COMMA     &kp DOT       &kp FSLH      &kp RSHFT
         // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯                │             │             ├─────────────┤   ├─────────────┤             │             │                ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
              &kp GLOBE     &kp BSLH      &kp EQUAL     &kp LBKT      &kp RBKT                                     &kp SPACE     &kp ENTER     &mo FN            &mo FN      &mth RALT BSPC &mth RSHFT DEL                                &kp LEFT      &kp DOWN      &kp UP        &kp RIGHT     &kp GLOBE
+        // ╰─────────────┴─────────────┴─────────────┴─────────────┴─────────────╯                              ╰─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────╯                              ╰─────────────┴─────────────┴─────────────┴─────────────┴─────────────╯
+      >;
+    };
+
+    windows_layer {
+      bindings = <
+        // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮                                                                                             ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
+             ___           ___           ___           ___           ___           ___           ___                                                                                                         ___           ___           ___           ___           ___           ___           ___
+        // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                                                                                             ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+             ___           ___           ___           ___           ___           ___           ___                                                                                                         ___           ___           ___           ___           ___           ___           ___
+        // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                ╭─────────────┬─────────────╮   ╭─────────────┬─────────────╮                ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+             ___           ___           ___           ___           ___           ___           ___                            &kp LCTRL     &kp LGUI          &kp RGUI      &kp RCTRL                      ___           ___           ___           ___           ___           ___           ___
+        // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯  ╭─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────╮  ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+             ___           ___           ___           ___           ___           ___                                                        ___               ___                                                        ___           ___           ___           ___           ___           ___
+        // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯                │             │             ├─────────────┤   ├─────────────┤             │             │                ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+             ___           ___           ___           ___           ___                                          ___           ___           ___               ___           ___           ___                                          ___           ___           ___           ___           ___
         // ╰─────────────┴─────────────┴─────────────┴─────────────┴─────────────╯                              ╰─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────╯                              ╰─────────────┴─────────────┴─────────────┴─────────────┴─────────────╯
       >;
     };
@@ -418,7 +435,7 @@
         // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮                                                                                             ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
              _x_           &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4  _x_                                                                                                         ___           _x_           _x_           _x_           _x_           _x_           _x_
         // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                                                                                             ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-             _x_           &to QWERTY    &to APTV3     &to KIN_DEF   _x_           _x_           &bootloader                                                                                                 &bootloader   _x_           _x_           _x_           _x_           _x_           _x_
+             _x_           &to QWERTY    &to WINDOWS   &to APTV3     &to KIN_DEF   _x_           &bootloader                                                                                                 &bootloader   _x_           _x_           _x_           _x_           _x_           _x_
         // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                ╭─────────────┬─────────────╮   ╭─────────────┬─────────────╮                ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
              _x_           _x_           _x_           _x_           _x_           _x_           _x_                            _x_           _x_               &bt BT_CLR    _x_                  &rgb_ug RGB_MEFS_CMD 5  _x_           _x_           _x_           _x_           _x_           _x_
         // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯  ╭─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────╮  ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
