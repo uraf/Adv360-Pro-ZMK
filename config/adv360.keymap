@@ -281,7 +281,7 @@
           compatible = "zmk,behavior-tap-dance";
           #binding-cells = <0>;
           tapping-term-ms = <200>;
-          bindings = <&lhs MOD MOD>, <&mo NUM>, <&mo CTL>;
+          bindings = <&mo MOD>, <&mo NUM>, <&mo CTL>;
       };
 
       right_td: right_tap_dance {
