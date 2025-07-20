@@ -147,17 +147,17 @@
 //         DEFINE_COMBO(f11, <&kp F11>, <POS_PLUS POS_MINUS>)
 //         DEFINE_COMBO(f12, <&kp F12>, <POS_MINUS POS_APOS>)
 //
-        DEFINE_HM_COMBO(lshft, MOD, LSHFT, <POS_Q POS_A>)
-        DEFINE_HM_COMBO(lctrl, MOD, LCTRL, <POS_W POS_S>)
-        DEFINE_HM_COMBO(lalt, MOD, LALT, <POS_E POS_D>)
-        DEFINE_HM_COMBO(lgui, MOD, LGUI, <POS_R POS_F>)
-        DEFINE_HM_COMBO(lglobe, MOD, GLOBE, <POS_T POS_G>)
+        DEFINE_HM_COMBO(lshft, HML, LSHFT, <POS_Q POS_A>)
+        DEFINE_HM_COMBO(lctrl, HML, LCTRL, <POS_W POS_S>)
+        DEFINE_HM_COMBO(lalt, HML, LALT, <POS_E POS_D>)
+        DEFINE_HM_COMBO(lgui, HML, LGUI, <POS_R POS_F>)
+        DEFINE_HM_COMBO(lglobe, HML, GLOBE, <POS_T POS_G>)
 
-        DEFINE_HM_COMBO(rglobe, MOD, GLOBE, <POS_Y POS_H>)
-        DEFINE_HM_COMBO(rgui, MOD, RGUI, <POS_U POS_J>)
-        DEFINE_HM_COMBO(ralt, MOD, RALT, <POS_I POS_K>)
-        DEFINE_HM_COMBO(rctrl, MOD, RCTRL, <POS_O POS_L>)
-        DEFINE_HM_COMBO(rshft, MOD, RSHFT, <POS_P POS_SEMI>)
+        DEFINE_HM_COMBO(rglobe, HMR, GLOBE, <POS_Y POS_H>)
+        DEFINE_HM_COMBO(rgui, HMR, RGUI, <POS_U POS_J>)
+        DEFINE_HM_COMBO(ralt, HMR, RALT, <POS_I POS_K>)
+        DEFINE_HM_COMBO(rctrl, HMR, RCTRL, <POS_O POS_L>)
+        DEFINE_HM_COMBO(rshft, HMR, RSHFT, <POS_P POS_SEMI>)
 
 
         DEFINE_HM_STICKY_COMBO(sticky_lshft, SHML, LSHFT, <POS_Z POS_A>)
