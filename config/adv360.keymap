@@ -274,7 +274,7 @@
           #binding-cells = <2>;
           tapping-term-ms = <500>;
           quick-tap-ms = <170>;
-          require-prior-idle-ms = <10>;
+          require-prior-idle-ms = <50>;
           bindings = <&kp>, <&kp>;
           hold-trigger-key-positions = <RIGHT_KEYS THUMB_KEYS>;
           hold-trigger-on-release;
@@ -287,10 +287,21 @@
           #binding-cells = <2>;
           tapping-term-ms = <500>;
           quick-tap-ms = <170>;
-          require-prior-idle-ms = <10>;
+          require-prior-idle-ms = <50>;
           bindings = <&kp>, <&kp>;
           hold-trigger-key-positions = <LEFT_KEYS THUMB_KEYS>;
           hold-trigger-on-release;
+      };
+
+      ht: hold_tap_fn {
+          compatible = "zmk,behavior-hold-tap";
+          flavor = "tap-preferred";
+          label = "HOLD_TAP_FN";
+          #binding-cells = <2>;
+          tapping-term-ms = <100>;
+          quick-tap-ms = <170>;
+          require-prior-idle-ms = <100>;
+          bindings = <&kp>, <&kp>;
       };
 
       rpi: require_prior_idle {
@@ -390,15 +401,15 @@
     qwerty2_layer {
       bindings = <
         // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮                                                                                             ╭─────────────┬─────────────┬────────────────┬────────────────┬──────────────────┬─────────────────┬────────────────╮
-             &kp GRAVE     &kp N1        &kp N2        &kp N3        &kp N4        &kp N5        &kp PSCRN                                                                                                   &mo KIN_MOD   &kp N6        &kp N7           &kp N8           &kp N9             &kp N0            &kp EQUAL
+             &kp GRAVE     &ht F1 N1     &ht F2 N2     &ht F3 N3     &ht F4 N4     &ht F5 N5     &kp PSCRN                                                                                                   &mo KIN_MOD   &ht F6 N6     &ht F7 N7        &ht F8 N8        &ht F9 N9          &ht F10 N0        &kp EQUAL
         // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                                                                                             ├─────────────┼─────────────┼────────────────┼────────────────┼──────────────────┼─────────────────┼────────────────┤
-             &kp TAB       &kp Q         &kp W         &kp E         &kp R         &kp T         &kp DEL                                                                                                     &kp PG_UP     &kp Y         &kp U            &kp I            &kp O              &kp P             &kp MINUS
+             &kp TAB       &kp Q         &kp W         &kp E         &kp R         &kp T         &kp DEL                                                                                                     &kp PG_UP     &kp Y         &kp U            &kp I            &kp O              &kp P             &ht F11 MINUS
         // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                ╭─────────────┬─────────────╮   ╭─────────────┬─────────────╮                ├─────────────┼─────────────┼────────────────┼────────────────┼──────────────────┼─────────────────┼────────────────┤
-             &kp ESC       &hml LSHFT A  &hml LCTRL S  &hml LALT D   &hml LGUI F   &kp G         &kp BSPC                       &kp LGUI      &kp LCTRL         &kp RCTRL     &kp RGUI                       &kp PG_DN     &kp H         &hmr RGUI J      &hmr RALT K      &hmr RCTRL L       &hmr RSHFT SEMI   &kp SQT
+             &kp ESC       &hml LSHFT A  &hml LCTRL S  &hml LALT D   &hml LGUI F   &kp G         &kp BSPC                       &kp LGUI      &kp LCTRL         &kp RCTRL     &kp RGUI                       &kp PG_DN     &kp H         &hmr RGUI J      &hmr RALT K      &hmr RCTRL L       &hmr RSHFT SEMI   &ht F12 SQT
         // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯  ╭─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────╮  ╰─────────────┼─────────────┼────────────────┼────────────────┼──────────────────┼─────────────────┼────────────────┤
              &kp LSHFT     &kp Z         &kp X         &kp C         &kp V         &kp B                                                      &kp LALT          &kp RALT                                                   &kp N         &kp M            &kp COMMA        &kp DOT            &kp FSLH          &m RSHFT ENTER
         // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯                │             │             ├─────────────┤   ├─────────────┤             │             │                ╰─────────────┼────────────────┼────────────────┼──────────────────┼─────────────────┼────────────────┤
-             &kp GLOBE     &kp BSLH      &kp EQUAL     &kp LBKT      &kp RBKT                                     &kp SPACE     &mo NEW_FUN   &kp LALT          &kp RALT      &kp BSPC      &right_td                                    &kp LEFT         &kp DOWN         &kp UP             &kp RIGHT         &kp GLOBE
+             &kp GLOBE     &kp BSLH      &kp EQUAL     &kp LBKT      &kp RBKT                                     &kp SPACE  &l NEW_FUN ENTER &kp LALT          &kp RALT      &kp BSPC      &right_td                                    &kp LEFT         &kp DOWN         &kp UP             &kp RIGHT         &kp GLOBE
         // ╰─────────────┴─────────────┴─────────────┴─────────────┴─────────────╯                              ╰─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────╯                              ╰────────────────┴────────────────┴──────────────────┴─────────────────┴────────────────╯
       >;
     };
