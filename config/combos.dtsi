@@ -1,0 +1,160 @@
+
+#define FN_KEYS 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 27 28 45 71 72 73 74
+#define LEFT_KEYS 0 1 2 3 4 5 6 14 15 16 17 18 19 20 28 29 30 31 32 33 34 46 47 48 49 50 51 60 61 62 63 64
+#define RIGHT_KEYS 7 8 9 10 11 12 13 21 22 23 24 25 26 27 39 40 41 42 43 44 45 54 55 56 57 58 59 71 72 73 74 75
+#define LEFT_THUMB_KEYS 35 36 52 65 66 67
+#define RIGHT_THUMB_KEYS 37 38 53 68 69 70
+#define THUMB_KEYS LEFT_THUMB_KEYS RIGHT_THUMB_KEYS
+
+// ╭────┬────┬────┬────┬────┬────┬────╮                                       ╭────┬────┬────┬────┬────┬────┬────╮
+// │  0 │  1 │  2 │  3 │  4 │  5 │  6 │                                       │  7 │  8 │  9 │ 10 │ 11 │ 12 │ 13 │
+// ├────┼────┼────┼────┼────┼────┼────┤                                       ├────┼────┼────┼────┼────┼────┼────┤
+// │ 14 │ 15 │ 16 │ 17 │ 18 │ 19 │ 20 │                                       │ 21 │ 22 │ 23 │ 24 │ 25 │ 26 │ 27 │
+// ├────┼────┼────┼────┼────┼────┼────┤       ╭────┬────╮   ╭────┬────╮       ├────┼────┼────┼────┼────┼────┼────┤
+// │ 28 │ 29 │ 30 │ 31 │ 32 │ 33 │ 34 │       │ 35 │ 36 │   │ 37 │ 38 │       │ 39 │ 40 │ 41 │ 42 │ 43 │ 44 │ 45 │
+// ├────┼────┼────┼────┼────┼────┼────╯  ╭────┼────┼────┤   ├────┼────┼────╮  ╰────┼────┼────┼────┼────┼────┼────┤
+// │ 46 │ 47 │ 48 │ 49 │ 50 │ 51 │       │    │    │ 52 │   │ 53 │    │    │       │ 54 │ 55 │ 56 │ 57 │ 58 │ 59 │
+// ├────┼────┼────┼────┼────┼────╯       │    │    ├────┤   ├────┤    │    │       ╰────┼────┼────┼────┼────┼────┤
+// │ 60 │ 61 │ 62 │ 63 │ 64 │            │ 65 │ 66 │ 67 │   │ 68 │ 69 │ 70 │            │ 71 │ 72 │ 73 │ 74 │ 75 │
+// ╰────┴────┴────┴────┴────╯            ╰────┴────┴────╯   ╰────┴────┴────╯            ╰────┴────┴────┴────┴────╯
+
+#define REORDER_LEFT_RIGHT_THUMBS(L1, L2, L3, L4, L5, R1, R2, R3, R4, R5, T3, T4, T5, X) L1 R1 L2 R2 L3 T3 R3 L4 T4 R4 L5 T5 R5
+
+
+#define POS_GRAVE 0
+#define POS_1 1
+#define POS_2 2
+#define POS_3 3
+#define POS_4 4
+#define POS_5 5
+#define POS_6 8
+#define POS_7 9
+#define POS_8 10
+#define POS_9 11
+#define POS_0 12
+#define POS_PLUS 13
+
+#define POS_TAB 14
+#define POS_Q 15
+#define POS_W 16
+#define POS_E 17
+#define POS_R 18
+#define POS_T 19
+#define POS_Y 22
+#define POS_U 23
+#define POS_I 24
+#define POS_O 25
+#define POS_P 26
+#define POS_MINUS 27
+
+#define POS_A 29
+#define POS_S 30
+#define POS_D 31
+#define POS_F 32
+#define POS_G 33
+#define POS_H 40
+#define POS_J 41
+#define POS_K 42
+#define POS_L 43
+#define POS_SEMI 44
+#define POS_APOS 45
+
+#define POS_Z 47
+#define POS_X 48
+#define POS_C 49
+#define POS_V 50
+#define POS_B 51
+#define POS_N 54
+#define POS_M 55
+#define POS_COMMA 56
+#define POS_PERIOD 57
+#define POS_SLASH 58
+#define POS_RSHIFT 59
+
+#define POS_EQUALS 62
+#define POS_LBRACKET 63
+#define POS_RBRACKET 64
+
+#define POS_LEFT 71
+#define POS_DOWN 72
+#define POS_UP 73
+#define POS_RIGHT 74
+#define POS_ENTER 75
+
+#define POS_SPACE 65
+#define POS_LCMD 66
+
+#define DEFINE_COMBO(NAME, BINDINGS, KEYPOS) \
+  combo_##NAME { \
+    timeout-ms = <150>; \
+    bindings = BINDINGS; \
+    key-positions = KEYPOS; \
+  };
+
+#define DEFINE_HM_COMBO(NAME, MO, KP, KEYPOS) \
+  combo_##NAME { \
+    timeout-ms = <50>; \
+    bindings = <&lm MO KP>; \
+    key-positions = KEYPOS; \
+  };
+
+#define DEFINE_HM_STICKY_COMBO(NAME, MO, KP, KEYPOS) \
+  combo_##NAME { \
+    timeout-ms = <50>; \
+    bindings = <&lm_sticky MO KP>; \
+    key-positions = KEYPOS; \
+  };
+
+/// {
+//    combos {
+//        compatible = "zmk,combos";
+//
+//         DEFINE_COMBO(f1, <&kp F1>, <POS_1 POS_Q>)
+//         DEFINE_COMBO(f2, <&kp F2>, <POS_2 POS_W>)
+//         DEFINE_COMBO(f3, <&kp F3>, <POS_3 POS_E>)
+//         DEFINE_COMBO(f4, <&kp F4>, <POS_4 POS_R>)
+//         DEFINE_COMBO(f5, <&kp F5>, <POS_5 POS_T>)
+//         DEFINE_COMBO(f6, <&kp F6>, <POS_6 POS_Y>)
+//         DEFINE_COMBO(f7, <&kp F7>, <POS_7 POS_U>)
+//         DEFINE_COMBO(f8, <&kp F8>, <POS_8 POS_I>)
+//         DEFINE_COMBO(f9, <&kp F9>, <POS_9 POS_O>)
+//         DEFINE_COMBO(f10, <&kp F10>, <POS_0 POS_P>)
+//         DEFINE_COMBO(f11, <&kp F11>, <POS_PLUS POS_MINUS>)
+//         DEFINE_COMBO(f12, <&kp F12>, <POS_MINUS POS_APOS>)
+//
+//        DEFINE_HM_COMBO(lshft, HML, LSHFT, <POS_Q POS_A>)
+//        DEFINE_HM_COMBO(lctrl, HML, LCTRL, <POS_W POS_S>)
+//        DEFINE_HM_COMBO(lalt, HML, LALT, <POS_E POS_D>)
+//        DEFINE_HM_COMBO(lgui, HML, LGUI, <POS_R POS_F>)
+//        DEFINE_HM_COMBO(lglobe, HML, GLOBE, <POS_T POS_G>)
+//
+//        DEFINE_HM_COMBO(rglobe, HMR, GLOBE, <POS_Y POS_H>)
+//        DEFINE_HM_COMBO(rgui, HMR, RGUI, <POS_U POS_J>)
+//        DEFINE_HM_COMBO(ralt, HMR, RALT, <POS_I POS_K>)
+//        DEFINE_HM_COMBO(rctrl, HMR, RCTRL, <POS_O POS_L>)
+//        DEFINE_HM_COMBO(rshft, HMR, RSHFT, <POS_P POS_SEMI>)
+//
+//
+//        DEFINE_HM_STICKY_COMBO(sticky_lshft, SHML, LSHFT, <POS_Z POS_A>)
+//        DEFINE_HM_STICKY_COMBO(sticky_lctrl, SHML, LCTRL, <POS_X POS_S>)
+//        DEFINE_HM_STICKY_COMBO(sticky_lalt, SHML, LALT, <POS_C POS_D>)
+//        DEFINE_HM_STICKY_COMBO(sticky_lgui, SHML, LGUI, <POS_V POS_F>)
+//        DEFINE_HM_STICKY_COMBO(sticky_lglobe, SHML, GLOBE, <POS_B POS_G>)
+//
+//        DEFINE_HM_STICKY_COMBO(sticky_rglobe, SHMR, GLOBE, <POS_N POS_H>)
+//        DEFINE_HM_STICKY_COMBO(sticky_rgui, SHMR, RGUI, <POS_M POS_J>)
+//        DEFINE_HM_STICKY_COMBO(sticky_ralt, SHMR, RALT, <POS_COMMA POS_K>)
+//        DEFINE_HM_STICKY_COMBO(sticky_rctrl, SHMR, RCTRL, <POS_PERIOD POS_L>)
+//        DEFINE_HM_STICKY_COMBO(sticky_rshft, SHMR, RSHFT, <POS_SLASH POS_SEMI>)
+//
+//         DEFINE_COMBO(print_screen, <&kp PSCRN>, <POS_X POS_EQUALS>)
+//         DEFINE_COMBO(scroll_lock, <&kp SCLK>, <POS_C POS_LBRACKET>)
+//         DEFINE_COMBO(pause_break, <&kp PAUSE_BREAK>, <POS_V POS_RBRACKET>)
+//
+//         DEFINE_COMBO(home, <&kp HOME>, <POS_M POS_LEFT>)
+//         DEFINE_COMBO(page_down, <&kp PG_DN>, <POS_COMMA POS_DOWN>)
+//         DEFINE_COMBO(page_up, <&kp PG_UP>, <POS_PERIOD POS_UP>)
+//         DEFINE_COMBO(end, <&kp END>, <POS_SLASH POS_RIGHT>)
+//         DEFINE_COMBO(menu, <&kp K_APP>, <POS_RSHIFT POS_ENTER>)
+//   };
+//};
