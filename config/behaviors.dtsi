@@ -96,3 +96,10 @@ l: layer_hold {
   quick-tap-ms = <200>;
   bindings = <&mo>, <&kp>;
 };
+
+fn_dance: fn_tap_dance {
+  compatible = "zmk,behavior-tap-dance";
+  #binding-cells = <0>;
+  tapping-term-ms = <300>;
+  bindings = <&mo FN>, <&mo MEDIA>;
+};
