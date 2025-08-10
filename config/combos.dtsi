@@ -47,6 +47,7 @@
 #define POS_P 26
 #define POS_MINUS 27
 
+#define POS_ESC 28
 #define POS_A 29
 #define POS_S 30
 #define POS_D 31
@@ -79,82 +80,70 @@
 #define POS_DOWN 72
 #define POS_UP 73
 #define POS_RIGHT 74
-#define POS_ENTER 75
 
 #define POS_SPACE 65
 #define POS_LCMD 66
 
 #define DEFINE_COMBO(NAME, BINDINGS, KEYPOS) \
   combo_##NAME { \
-    timeout-ms = <150>; \
+    timeout-ms = <60>; \
     bindings = BINDINGS; \
     key-positions = KEYPOS; \
   };
 
-#define DEFINE_HM_COMBO(NAME, MO, KP, KEYPOS) \
-  combo_##NAME { \
-    timeout-ms = <50>; \
-    bindings = <&lm MO KP>; \
-    key-positions = KEYPOS; \
+#define DEFINE_HM_COMBO(NAME, MO, KP, KEYPOS)      \
+  combo_##NAME {                                   \
+    timeout-ms = <60>;                             \
+    bindings = <&lm MO KP>;                        \
+    key-positions = KEYPOS;                        \
   };
 
-#define DEFINE_HM_STICKY_COMBO(NAME, MO, KP, KEYPOS) \
-  combo_##NAME { \
-    timeout-ms = <50>; \
-    bindings = <&lm_sticky MO KP>; \
-    key-positions = KEYPOS; \
+#define DEFINE_STICKY_HM_COMBO(NAME, MO, KP, KEYPOS) \
+  combo_##NAME {                                     \
+    timeout-ms = <60>;                               \
+    bindings = <&lm_sticky MO KP>;                   \
+    key-positions = KEYPOS;                          \
   };
+
+#define DEFINE_HM_COMBOS(NAME, MO, KP, KEYPOS) \
+  DEFINE_STICKY_HM_COMBO(NAME, MO, KP, KEYPOS)
 
 / {
     combos {
         compatible = "zmk,combos";
 
-//         DEFINE_COMBO(f1, <&kp F1>, <POS_Q POS_D POS_F>)
-//         DEFINE_COMBO(f2, <&kp F2>, <POS_W POS_D POS_F>)
-//         DEFINE_COMBO(f3, <&kp F3>, <POS_S POS_E POS_F>)
-//         DEFINE_COMBO(f4, <&kp F4>, <POS_S POS_D POS_R>)
-//         DEFINE_COMBO(f5, <&kp F5>, <POS_S POS_D POS_T>)
-//         DEFINE_COMBO(f6, <&kp F6>, <POS_Y POS_K POS_L>)
-//         DEFINE_COMBO(f7, <&kp F7>, <POS_U POS_K POS_L>)
-//         DEFINE_COMBO(f8, <&kp F8>, <POS_J POS_I POS_L>)
-//         DEFINE_COMBO(f9, <&kp F9>, <POS_J POS_K POS_O>)
-//         DEFINE_COMBO(f10, <&kp F10>, <POS_J POS_K POS_P>)
-//         DEFINE_COMBO(f11, <&kp F11>, <POS_J POS_K POS_MINUS>)
-//         DEFINE_COMBO(f12, <&kp F12>, <POS_J POS_K POS_APOS>)
+//        DEFINE_COMBO(tab, <&kp TAB>, <POS_TAB POS_ESC>)
+//
+//        DEFINE_COMBO(f1, <&kp F1>, <POS_1 POS_Q>)
+//        DEFINE_COMBO(f2, <&kp F2>, <POS_2 POS_W>)
+//        DEFINE_COMBO(f3, <&kp F3>, <POS_3 POS_E>)
+//        DEFINE_COMBO(f4, <&kp F4>, <POS_4 POS_R>)
+//        DEFINE_COMBO(f5, <&kp F5>, <POS_5 POS_T>)
+//        DEFINE_COMBO(f6, <&kp F6>, <POS_6 POS_Y>)
+//        DEFINE_COMBO(f7, <&kp F7>, <POS_7 POS_U>)
+//        DEFINE_COMBO(f8, <&kp F8>, <POS_8 POS_I>)
+//        DEFINE_COMBO(f9, <&kp F9>, <POS_9 POS_O>)
+//        DEFINE_COMBO(f10, <&kp F10>, <POS_0 POS_P>)
+//        DEFINE_COMBO(f11, <&kp F11>, <POS_PLUS POS_MINUS>)
+//        DEFINE_COMBO(f12, <&kp F12>, <POS_MINUS POS_APOS>)
 
-        DEFINE_HM_COMBO(lshft, MOD_LEFT, LSHFT, <POS_Q POS_A>)
-        DEFINE_HM_COMBO(lctrl, MOD_LEFT, LCTRL, <POS_W POS_S>)
-        DEFINE_HM_COMBO(lalt, MOD_LEFT, LALT, <POS_E POS_D>)
-        DEFINE_HM_COMBO(lgui, MOD_LEFT, LGUI, <POS_R POS_F>)
-        DEFINE_HM_COMBO(lglobe, MOD_LEFT, GLOBE, <POS_T POS_G>)
+        DEFINE_HM_COMBOS(lshft, MOD_LEFT, LSHFT, <POS_Q POS_A>)
+        DEFINE_HM_COMBOS(lctrl, MOD_LEFT, LCTRL, <POS_W POS_S>)
+        DEFINE_HM_COMBOS(lalt, MOD_LEFT, LALT, <POS_E POS_D>)
+        DEFINE_HM_COMBOS(lgui, MOD_LEFT, LGUI, <POS_R POS_F>)
+        DEFINE_HM_COMBOS(lglobe, MOD_LEFT, GLOBE, <POS_T POS_G>)
+        DEFINE_HM_COMBOS(rglobe, MOD_RIGHT, GLOBE, <POS_Y POS_H>)
+        DEFINE_HM_COMBOS(rgui, MOD_RIGHT, RGUI, <POS_U POS_J>)
+        DEFINE_HM_COMBOS(ralt, MOD_RIGHT, RALT, <POS_I POS_K>)
+        DEFINE_HM_COMBOS(rctrl, MOD_RIGHT, RCTRL, <POS_O POS_L>)
+        DEFINE_HM_COMBOS(rshft, MOD_RIGHT, RSHFT, <POS_P POS_SEMI>)
 
-        DEFINE_HM_COMBO(rglobe, MOD_RIGHT, GLOBE, <POS_Y POS_H>)
-        DEFINE_HM_COMBO(rgui, MOD_RIGHT, RGUI, <POS_U POS_J>)
-        DEFINE_HM_COMBO(ralt, MOD_RIGHT, RALT, <POS_I POS_K>)
-        DEFINE_HM_COMBO(rctrl, MOD_RIGHT, RCTRL, <POS_O POS_L>)
-        DEFINE_HM_COMBO(rshft, MOD_RIGHT, RSHFT, <POS_P POS_SEMI>)
-
+//        DEFINE_COMBO(backspace, <&kp BSPC>, <POS_C POS_LBRACKET>)
+//        DEFINE_COMBO(del, <&kp DEL>, <POS_V POS_RBRACKET>)
 //
-//        DEFINE_HM_STICKY_COMBO(sticky_lshft, SHML, LSHFT, <POS_Z POS_A>)
-//        DEFINE_HM_STICKY_COMBO(sticky_lctrl, SHML, LCTRL, <POS_X POS_S>)
-//        DEFINE_HM_STICKY_COMBO(sticky_lalt, SHML, LALT, <POS_C POS_D>)
-//        DEFINE_HM_STICKY_COMBO(sticky_lgui, SHML, LGUI, <POS_V POS_F>)
-//        DEFINE_HM_STICKY_COMBO(sticky_lglobe, SHML, GLOBE, <POS_B POS_G>)
-//
-//        DEFINE_HM_STICKY_COMBO(sticky_rglobe, SHMR, GLOBE, <POS_N POS_H>)
-//        DEFINE_HM_STICKY_COMBO(sticky_rgui, SHMR, RGUI, <POS_M POS_J>)
-//        DEFINE_HM_STICKY_COMBO(sticky_ralt, SHMR, RALT, <POS_COMMA POS_K>)
-//        DEFINE_HM_STICKY_COMBO(sticky_rctrl, SHMR, RCTRL, <POS_PERIOD POS_L>)
-//        DEFINE_HM_STICKY_COMBO(sticky_rshft, SHMR, RSHFT, <POS_SLASH POS_SEMI>)
-//
-//         DEFINE_COMBO(print_screen, <&kp PSCRN>, <POS_X POS_EQUALS>)
-//         DEFINE_COMBO(scroll_lock, <&kp SCLK>, <POS_C POS_LBRACKET>)
-//         DEFINE_COMBO(pause_break, <&kp PAUSE_BREAK>, <POS_V POS_RBRACKET>)
-//
-//         DEFINE_COMBO(home, <&kp HOME>, <POS_M POS_LEFT>)
-//         DEFINE_COMBO(page_down, <&kp PG_DN>, <POS_COMMA POS_DOWN>)
-//         DEFINE_COMBO(page_up, <&kp PG_UP>, <POS_PERIOD POS_UP>)
-//         DEFINE_COMBO(end, <&kp END>, <POS_SLASH POS_RIGHT>)
-//         DEFINE_COMBO(menu, <&kp K_APP>, <POS_RSHIFT POS_ENTER>)
+//        DEFINE_COMBO(home, <&kp HOME>, <POS_M POS_LEFT>)
+//        DEFINE_COMBO(page_down, <&kp PG_DN>, <POS_COMMA POS_DOWN>)
+//        DEFINE_COMBO(page_up, <&kp PG_UP>, <POS_PERIOD POS_UP>)
+//        DEFINE_COMBO(end, <&kp END>, <POS_SLASH POS_RIGHT>)
    };
 };
