@@ -106,7 +106,7 @@
   };
 
 #define DEFINE_HM_COMBOS(NAME, MO, KP, KEYPOS) \
-  DEFINE_STICKY_HM_COMBO(NAME, MO, KP, KEYPOS)
+  DEFINE_HM_COMBO(NAME, MO, KP, KEYPOS)
 
 / {
     combos {
@@ -114,18 +114,18 @@
 
 //        DEFINE_COMBO(tab, <&kp TAB>, <POS_TAB POS_ESC>)
 //
-//        DEFINE_COMBO(f1, <&kp F1>, <POS_1 POS_Q>)
-//        DEFINE_COMBO(f2, <&kp F2>, <POS_2 POS_W>)
-//        DEFINE_COMBO(f3, <&kp F3>, <POS_3 POS_E>)
-//        DEFINE_COMBO(f4, <&kp F4>, <POS_4 POS_R>)
-//        DEFINE_COMBO(f5, <&kp F5>, <POS_5 POS_T>)
-//        DEFINE_COMBO(f6, <&kp F6>, <POS_6 POS_Y>)
-//        DEFINE_COMBO(f7, <&kp F7>, <POS_7 POS_U>)
-//        DEFINE_COMBO(f8, <&kp F8>, <POS_8 POS_I>)
-//        DEFINE_COMBO(f9, <&kp F9>, <POS_9 POS_O>)
-//        DEFINE_COMBO(f10, <&kp F10>, <POS_0 POS_P>)
-//        DEFINE_COMBO(f11, <&kp F11>, <POS_PLUS POS_MINUS>)
-//        DEFINE_COMBO(f12, <&kp F12>, <POS_MINUS POS_APOS>)
+        DEFINE_COMBO(f1, <&kp F1>, <POS_1 POS_Q>)
+        DEFINE_COMBO(f2, <&kp F2>, <POS_2 POS_W>)
+        DEFINE_COMBO(f3, <&kp F3>, <POS_3 POS_E>)
+        DEFINE_COMBO(f4, <&kp F4>, <POS_4 POS_R>)
+        DEFINE_COMBO(f5, <&kp F5>, <POS_5 POS_T>)
+        DEFINE_COMBO(f6, <&kp F6>, <POS_6 POS_Y>)
+        DEFINE_COMBO(f7, <&kp F7>, <POS_7 POS_U>)
+        DEFINE_COMBO(f8, <&kp F8>, <POS_8 POS_I>)
+        DEFINE_COMBO(f9, <&kp F9>, <POS_9 POS_O>)
+        DEFINE_COMBO(f10, <&kp F10>, <POS_0 POS_P>)
+        DEFINE_COMBO(f11, <&kp F11>, <POS_PLUS POS_MINUS>)
+        DEFINE_COMBO(f12, <&kp F12>, <POS_MINUS POS_APOS>)
 
         DEFINE_HM_COMBOS(lshft, MOD_LEFT, LSHFT, <POS_Q POS_A>)
         DEFINE_HM_COMBOS(lctrl, MOD_LEFT, LCTRL, <POS_W POS_S>)
@@ -138,12 +138,19 @@
         DEFINE_HM_COMBOS(rctrl, MOD_RIGHT, RCTRL, <POS_O POS_L>)
         DEFINE_HM_COMBOS(rshft, MOD_RIGHT, RSHFT, <POS_P POS_SEMI>)
 
+        DEFINE_COMBO(grave, <&kp GRAVE>, <POS_D POS_C>)
+
+        DEFINE_COMBO(lbkt, <&kp LBKT>, <POS_J POS_M>)
+        DEFINE_COMBO(rbkt, <&kp RBKT>, <POS_K POS_COMMA>)
+        DEFINE_COMBO(equal, <&kp EQUAL>, <POS_L POS_PERIOD>)
+        DEFINE_COMBO(bslh, <&kp BSLH>, <POS_SEMI POS_SLASH>)
+
 //        DEFINE_COMBO(backspace, <&kp BSPC>, <POS_C POS_LBRACKET>)
 //        DEFINE_COMBO(del, <&kp DEL>, <POS_V POS_RBRACKET>)
 //
-//        DEFINE_COMBO(home, <&kp HOME>, <POS_M POS_LEFT>)
-//        DEFINE_COMBO(page_down, <&kp PG_DN>, <POS_COMMA POS_DOWN>)
-//        DEFINE_COMBO(page_up, <&kp PG_UP>, <POS_PERIOD POS_UP>)
-//        DEFINE_COMBO(end, <&kp END>, <POS_SLASH POS_RIGHT>)
+        DEFINE_COMBO(home, <&kp HOME>, <POS_M POS_LEFT>)
+        DEFINE_COMBO(page_down, <&kp PG_DN>, <POS_COMMA POS_DOWN>)
+        DEFINE_COMBO(page_up, <&kp PG_UP>, <POS_PERIOD POS_UP>)
+        DEFINE_COMBO(end, <&kp END>, <POS_SLASH POS_RIGHT>)
    };
 };
