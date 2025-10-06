@@ -77,22 +77,3 @@ DEFINE_HOME_ROW_MOD_R(hlr, &mo)
 DEFINE_HOME_ROW_MOD(hlf, &mo, FN_KEYS)
 DEFINE_HOME_ROW_MOD(hlm, &mo, FN_KEYS)
 
-m: mod_hold {
-  compatible = "zmk,behavior-hold-tap";
-  flavor = "hold-preferred";
-  label = "MOD_HOLD";
-  #binding-cells = <2>;
-  tapping-term-ms = <220>;
-  quick-tap-ms = <200>;
-  bindings = <&kp>, <&kp>;
-};
-
-l: layer_hold {
-  compatible = "zmk,behavior-hold-tap";
-  flavor = "hold-preferred";
-  label = "LAYER_HOLD";
-  #binding-cells = <2>;
-  tapping-term-ms = <220>;
-  quick-tap-ms = <200>;
-  bindings = <&mo>, <&kp>;
-};

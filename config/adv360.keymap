@@ -22,7 +22,9 @@
 #define ___ &trans
 #define _x_ &none
 
-#include "combos.dtsi"
+#define REORDER_LEFT_RIGHT_THUMBS(L1, L2, L3, L4, L5, R1, R2, R3, R4, R5, T3, T4, T5, X) L1 R1 L2 R2 L3 T3 R3 L4 T4 R4 L5 T5 R5
+
+//#include "combos.dtsi"
 
 
 / {
@@ -30,7 +32,27 @@
       #include "macros.dtsi"
       #include "version.dtsi"
 
-      #include "behaviors.dtsi"
+//      #include "behaviors.dtsi"
+
+      m: mod_hold {
+        compatible = "zmk,behavior-hold-tap";
+        flavor = "hold-preferred";
+        label = "MOD_HOLD";
+        #binding-cells = <2>;
+        tapping-term-ms = <220>;
+        quick-tap-ms = <200>;
+        bindings = <&kp>, <&kp>;
+      };
+
+      l: layer_hold {
+        compatible = "zmk,behavior-hold-tap";
+        flavor = "hold-preferred";
+        label = "LAYER_HOLD";
+        #binding-cells = <2>;
+        tapping-term-ms = <220>;
+        quick-tap-ms = <200>;
+        bindings = <&mo>, <&kp>;
+      };
     };
 
   keymap {
@@ -63,11 +85,11 @@
         //                             ╰─────────────┴─────────────┴─────────────┴─────────────┴─────────────╯
         //
         //               ╭─────────────┬─────────────╮   ╭─────────────┬─────────────╮
-                           &kp LGUI      &kp LCTRL         &kp RCTRL     &kp RGUI    ,
+                           &mo FN        &kp LCTRL         &kp RCTRL     &mo FN      ,
         // ╭─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────╮
                                          &kp LALT          &kp RALT                                ,
         // │             │             ├─────────────┤   ├─────────────┤             │             │
-             &kp SPACE     &l NUM ENTER  &mo FN            &mo FN        &kp BSPC      &kp RSHFT   ,
+             &kp SPACE     &l NUM ENTER  &kp LGUI          &kp RGUI      &kp BSPC      &kp RSHFT   ,
         // ╰─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────╯
       )>;
     };
